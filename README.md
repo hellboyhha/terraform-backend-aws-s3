@@ -33,8 +33,8 @@ provider "aws" {
 ````
 * The following block in **main.tf** creates AWS S3 bucket:
 ````bash
-resource "aws_s3_bucket" "aws-terraform-state-1" {
-    bucket = "aws-terraform-state-1"
+resource "aws_s3_bucket" "(your-aws-s3-bucket-name)" {
+    bucket = "(your-aws-s3-bucket-name)"
 
     lifecycle {
         prevent_destroy = true
@@ -55,8 +55,8 @@ resource "aws_s3_bucket" "aws-terraform-state-1" {
 ````
 * The following block in **main.tf** creates AWS dynamodb table for Locking.
 ````bash
-resource "aws_dynamodb_table" "aws-terraform-locks-1" {
-    name = "aws-terraform-locks-1"
+resource "aws_dynamodb_table" "(your-aws-dynamodb-table-name)" {
+    name = "(your-aws-dynamodb-table-name)"
     billing_mode = "PAY_PER_REQUEST"
     hash_key = "LockID"
 
@@ -69,12 +69,12 @@ resource "aws_dynamodb_table" "aws-terraform-locks-1" {
 * The following block in **output.tf** will print out the Amazon Resource Name (ARN) of your S3 bucket and the name of your DynamoDB table.
 ````bash
 output "s3_bucket_arn" {
-    value = aws_s3_bucket.aws-terraform-state-1.arn
+    value = aws_s3_bucket.(your-aws-s3-bucket-name).arn
     description = "The ARN of the s3 bucket"
 }
 
 output "dynamodb_table_name" {
-    value = aws_dynamodb_table.aws-terraform-locks-1.name
+    value = aws_dynamodb_table.(your-aws-dynamodb-table-name).name
     description = "The name of the DynamoDB table"
 }
 ````
