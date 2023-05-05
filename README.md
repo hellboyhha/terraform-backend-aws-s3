@@ -25,3 +25,31 @@ export AWS_ACCESS_KEY_ID=(your aws access key id)
 export AWS_SECRET_ACCESS_KEY=(your aws secret access key)
 ````
 2. Clone the repo and go to **global/s3** directory and change your desired AWS S3 bucket and dynamodb table name in **main.tf** file.
+* The following block in **main.tf** specifies AWS as the provider:
+````bash
+provider "aws" {
+    region = "us-east-1"
+}
+````
+* The following block in **main.tf** creates an S3 bucket:
+````bash
+resource "aws_s3_bucket" "aws-terraform-state-1" {
+    bucket = "aws-terraform-state-1"
+
+    lifecycle {
+        prevent_destroy = true
+    }
+
+    versioning {
+        enabled = true
+    }
+
+    server_side_encryption_configuration {
+        rule {
+            apply_server_side_encryption_by_default {
+                sse_algorithm = "AES256"
+            }
+        }
+    }
+}
+````
