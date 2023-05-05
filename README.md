@@ -18,7 +18,7 @@ Terraform supports remote backends including Amazon S3; Azure Storage and Google
 
 ## Steps to store terrafrom state files to AWS S3
 
-1. Export AWS Access Key and Secret Access Key in your terminal
+1. Export AWS Access Key and Secret Access Key in your termina:
 <!-- Bash script block -->
 ````bash
 export AWS_ACCESS_KEY_ID=(your aws access key id)
@@ -53,7 +53,7 @@ resource "aws_s3_bucket" "(your-aws-s3-bucket-name)" {
     }
 }
 ````
-* The following block in **main.tf** creates AWS dynamodb table for Locking.
+* The following block in **main.tf** creates AWS dynamodb table for Locking:
 ````bash
 resource "aws_dynamodb_table" "(your-aws-dynamodb-table-name)" {
     name = "(your-aws-dynamodb-table-name)"
@@ -66,7 +66,7 @@ resource "aws_dynamodb_table" "(your-aws-dynamodb-table-name)" {
     }
 }
 ````
-* The following block in **output.tf** will print out the Amazon Resource Name (ARN) of your S3 bucket and the name of your DynamoDB table.
+* The following block in **output.tf** will print out the Amazon Resource Name (ARN) of your S3 bucket and the name of your DynamoDB table:
 ````bash
 output "s3_bucket_arn" {
     value = aws_s3_bucket.(your-aws-s3-bucket-name).arn
@@ -81,7 +81,7 @@ output "dynamodb_table_name" {
 * Run **terraform init** and **terraform apply** to create your AWS S3 bucket and dynomodb table.
 
 ## Adding a remote backend configuration to Terraform to use the newly created S3 bucket and DynamoDB table.
-* Go to dev/web-server directory and see the **main.tf** file. The following block sets terraform to use your created S3 bucket and dynamodb tabled as its state file store.
+* Go to dev/web-server directory and see the **main.tf** file. The following block sets terraform to use your created S3 bucket and dynamodb tabled as its state file store:
 ````bash
 terraform {
    backend "s3" {
