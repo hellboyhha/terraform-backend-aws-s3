@@ -6,7 +6,7 @@
 #### Locking
 > Can't prevent two team members from running terraform apply on the same state file at the same time because most version control systems do not provide any form of locking.
 #### Secrets
-> All data in Terraform state files including sensitive data. Storing plain-text secrets anywhere is a bad idea, including version control.
+> All data in Terraform state files including sensitive data is stored in plain text. Storing plain-text secrets anywhere is a bad idea, including version control.
 
 ## Shared Storage for state files
 Terraform supports remote backends including Amazon S3; Azure Storage and Google Cloud Storage. Using remote backends solve all above concerns.
