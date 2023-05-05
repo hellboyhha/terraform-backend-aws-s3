@@ -18,7 +18,7 @@ Terraform supports remote backends including Amazon S3; Azure Storage and Google
 
 ## Steps to store terrafrom state files to AWS S3
 
-1. Export AWS Access Key and Secret Access Key in your termina:
+1. Export AWS Access Key and Secret Access Key in your terminal:
 <!-- Bash script block -->
 ````bash
 export AWS_ACCESS_KEY_ID=(your aws access key id)
