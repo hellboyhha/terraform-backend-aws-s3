@@ -28,7 +28,7 @@ export AWS_SECRET_ACCESS_KEY=(your aws secret access key)
 * The following block in **main.tf** specifies AWS as the provider:
 ````bash
 provider "aws" {
-    region = "us-east-1"
+    region = "(your-aws-region)"
 }
 ````
 * The following block in **main.tf** creates AWS S3 bucket:
@@ -87,7 +87,7 @@ terraform {
    backend "s3" {
        bucket = "(your-aws-s3-bucket-name)"
        key = "global/s3/terraform.tfstate"
-       region = "us-east-1"
+       region = "(your-aws-region)"
 
        dynamodb_table = "(your-aws-dynamodb-table-name)"
        encrypt = true
