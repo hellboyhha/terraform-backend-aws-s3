@@ -78,3 +78,4 @@ output "dynamodb_table_name" {
     description = "The name of the DynamoDB table"
 }
 ````
+* Run **terraform init** and **terraform apply** to create your AWS S3 bucket and dynomodb table.
