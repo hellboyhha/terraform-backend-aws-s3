@@ -96,4 +96,4 @@ terraform {
 ````
 * Run **terraform init** to copy your local state to S3.
 
-## Now, head over to the S3 console again, refresh the page and you can now see your **terraform.tfstate** file in the S3 bucket
+## Now, head over to the AWS S3 console, refresh the page and you can now see your **terraform.tfstate** file in the S3 bucket
