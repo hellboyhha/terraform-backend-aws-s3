@@ -79,3 +79,31 @@ output "dynamodb_table_name" {
 }
 ````
 * Run **terraform init** and **terraform apply** to create your AWS S3 bucket and dynomodb table.
+
+## Adding a remote backend configuration to it to use the newly created S3 bucket and DynamoDB table.
+* Go to dev/web-server directory and see the **main.tf** file. The following block sets terraform to use your created S3 bucket and dynamodb tabled as its state file store.
+````bash
+terraform {
+   backend "s3" {
+       bucket = "(your-aws-s3-bucket-name)"
+       key = "global/s3/terraform.tfstate"
+       region = "us-east-1"
+
+       dynamodb_table = "(your-aws-dynamodb-table-name)"
+       encrypt = true
+   }
+}
+````
+* The following block creates EC2 instance to test our configuration backend is working or not.
+````bash
+# launching aws ec2 instance ( Ubuntu Server 22.04 LTS )
+resource "aws_instance" "(your-aws-ec2-instance-name)" {
+
+    ami                     = "ami-007855ac798b5175e"
+    instance_type           = "t2.micro"
+
+    tags = {
+        Name = "dev-web-srv-1"
+    }
+}
+````
