@@ -10,3 +10,9 @@
 
 ### Shared Storage for state files
 Terraform supports remote backends including Amazon S3; Azure Storage and Google Cloud Storage. Using remote backends solve all above concerns.
+
+Pre-requisites:
+* AWS access keys and secret keys
+* Terraform installed
+
+ 
