@@ -53,7 +53,7 @@ resource "aws_s3_bucket" "(your-aws-s3-bucket-name)" {
     }
 }
 ````
-* The following block in **main.tf** creates AWS dynamodb table for Locking:
+* The following block in **main.tf** creates AWS dynamodb table for locking:
 ````bash
 resource "aws_dynamodb_table" "(your-aws-dynamodb-table-name)" {
     name = "(your-aws-dynamodb-table-name)"
@@ -94,6 +94,6 @@ terraform {
    }
 }
 ````
-* Run **terraform init** to copy your local state to S3.
+* Run ** *terraform init* ** to copy your local state to S3.
 
 ## Now, head over to the AWS S3 console, refresh the page and you can now see your **terraform.tfstate** file in the S3 bucket
