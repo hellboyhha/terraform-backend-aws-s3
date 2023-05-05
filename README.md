@@ -1,6 +1,6 @@
 #  Storing Terrafrom State Files to AWS S3
 
-### Storing Terraform state in version control have the following concerns.
+## Storing Terraform state in version control have the following concerns.
 #### Manual Error
 > Can forget to pull down the latest changes(latest version state file) from version control before running terraform or to push your latest changes to version control after running Terraform.
 #### Locking
@@ -8,7 +8,7 @@
 #### Secrets
 > All data in Terraform state files including sensitive data. Storing plain-text secrets anywhere is a bad idea, including version control.
 
-### Shared Storage for state files
+## Shared Storage for state files
 Terraform supports remote backends including Amazon S3; Azure Storage and Google Cloud Storage. Using remote backends solve all above concerns.
 
 Pre-requisites:
@@ -16,7 +16,7 @@ Pre-requisites:
 * Terraform installed
 
 
-### Steps to store terrafrom state files to AWS S3
+## Steps to store terrafrom state files to AWS S3
 
 1. Export AWS Access Key and Secret Access Key in your terminal
 <!-- Bash script block -->
