@@ -23,4 +23,5 @@ Pre-requisites:
 ````bash
 export AWS_ACCESS_KEY_ID=(your aws access key id)
 export AWS_SECRET_ACCESS_KEY=(your aws secret access key)
- 
+````
+2. Clone the repo and go to **global/s3** directory and change your desired AWS S3 bucket and dynamodb table name in **main.tf** file.
