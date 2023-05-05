@@ -11,7 +11,7 @@
 ## Shared Storage for state files
 Terraform supports remote backends including Amazon S3; Azure Storage and Google Cloud Storage. Using remote backends solve all above concerns.
 
-Pre-requisites:
+## Pre-requisites:
 * AWS Access Key and Secret Access Key
 * Terraform installed
 
@@ -31,7 +31,7 @@ provider "aws" {
     region = "us-east-1"
 }
 ````
-* The following block in **main.tf** creates an S3 bucket:
+* The following block in **main.tf** creates AWS S3 bucket:
 ````bash
 resource "aws_s3_bucket" "aws-terraform-state-1" {
     bucket = "aws-terraform-state-1"
@@ -51,5 +51,30 @@ resource "aws_s3_bucket" "aws-terraform-state-1" {
             }
         }
     }
+}
+````
+* The following block in **main.tf** creates AWS dynamodb table for Locking.
+````bash
+resource "aws_dynamodb_table" "aws-terraform-locks-1" {
+    name = "aws-terraform-locks-1"
+    billing_mode = "PAY_PER_REQUEST"
+    hash_key = "LockID"
+
+    attribute {
+        name = "LockID"
+        type = "S"
+    }
+}
+````
+* The following block in **output.tf** will print out the Amazon Resource Name (ARN) of your S3 bucket and the name of your DynamoDB table.
+````bash
+output "s3_bucket_arn" {
+    value = aws_s3_bucket.aws-terraform-state-1.arn
+    description = "The ARN of the s3 bucket"
+}
+
+output "dynamodb_table_name" {
+    value = aws_dynamodb_table.aws-terraform-locks-1.name
+    description = "The name of the DynamoDB table"
 }
 ````
