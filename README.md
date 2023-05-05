@@ -9,5 +9,4 @@
 > All data in Terraform state files including sensitive data. Storing plain-text secrets anywhere is a bad idea, including version control.
 
 ### Shared Storage for state files
-Terraform supports remote backends including Amazon S3; Azure Storage and Google Cloud Storage
-Using remote backends solve all above concerns.
+Terraform supports remote backends including Amazon S3; Azure Storage and Google Cloud Storage. Using remote backends solve all above concerns.
