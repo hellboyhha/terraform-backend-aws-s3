@@ -78,7 +78,7 @@ output "dynamodb_table_name" {
     description = "The name of the DynamoDB table"
 }
 ````
-* Run **terraform init** and **terraform apply** to create your AWS S3 bucket and dynomodb table.
+* Run ***terraform init*** and ***terraform apply*** to create your AWS S3 bucket and dynomodb table.
 
 ## Adding a remote backend configuration to Terraform to use the newly created S3 bucket and DynamoDB table.
 * Go to dev/web-server directory and see the **main.tf** file. The following block sets terraform to use your created S3 bucket and dynamodb tabled as its state file store:
