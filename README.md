@@ -1,4 +1,4 @@
-#  Storing Terrafrom State Files to AWS S3
+#  Storing Terraform State Files to AWS S3
 
 ## Storing Terraform state in version control have the following concerns.
 #### Manual Error
