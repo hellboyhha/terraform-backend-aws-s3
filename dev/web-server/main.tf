@@ -7,7 +7,7 @@ provider "aws" {
 terraform {
    backend "s3" {
        bucket = "aws-terraform-state-1"
-       key = "global/s3/terraform.tfstate"
+       key = "dev/web-server/terraform.tfstate"
        region = "us-east-1"
 
        dynamodb_table = "my-terraform-locks"
