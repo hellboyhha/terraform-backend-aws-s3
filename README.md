@@ -86,7 +86,7 @@ output "dynamodb_table_name" {
 terraform {
    backend "s3" {
        bucket = "(your-aws-s3-bucket-name)"
-       key = "global/s3/terraform.tfstate"
+       key = "dev/web-server/terraform.tfstate"
        region = "(your-aws-region)"
 
        dynamodb_table = "(your-aws-dynamodb-table-name)"
